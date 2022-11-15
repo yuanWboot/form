@@ -41,10 +41,19 @@ public class FormController {
 //    }
 
     //使用map接收复合数据时，复合数据中只接收首个，会发生数据丢失
-    @PostMapping("/apply")
+    //@PostMapping("/apply")
     @ResponseBody
     public String apply(@RequestParam Map map){
         System.out.println(map);
+        return "SUCCESS";
+    }
+
+    @PostMapping("/apply")
+    @ResponseBody
+    public String apply(Form form){
+        System.out.println(form.getDelivery().getAddress());
+        System.out.println(form.getDelivery().getMobile());
+        System.out.println(form.getDelivery().getName());
         return "SUCCESS";
     }
 }
